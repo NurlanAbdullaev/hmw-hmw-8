@@ -1,23 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import "./App.css";
+import { Main } from "./conponents/main/Main";
+import { Header } from "./conponents/header/Header";
+import { Modale } from "./conponents/modal/Modal";
 
 function App() {
+  const [openModal, setOpenModal] = useState(false);
+  const [movie, setMovie] = useState([]);
+
+  const addMovieFunction = (data) => {
+    console.log(data);
+    const upDatas = [...movie, data];
+    setMovie(upDatas);
+
+    setOpenModal((prevState) => !prevState);
+  };
+
+  const OpenModalHandler = (e) => {
+    e.preventDefault();
+    setOpenModal((prevState) => !prevState);
+  };
+
+  const deleteItem = (id) => {
+    const deleteTodos = movie.filter((el) => el.id !== id);
+    setMovie(deleteTodos);
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header close={OpenModalHandler} />
+      <Main setMovie={setMovie} deleteItem={deleteItem} datas={movie} />
+      {openModal ? (
+        <Modale addMovieFunction={addMovieFunction} close={OpenModalHandler} />
+      ) : null}
     </div>
   );
 }
