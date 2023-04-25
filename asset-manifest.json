@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/hmw-hmw-8/static/css/main.073c9b0a.css",
+    "main.js": "/hmw-hmw-8/static/js/main.6fc483d2.js",
+    "index.html": "/hmw-hmw-8/index.html",
+    "main.073c9b0a.css.map": "/hmw-hmw-8/static/css/main.073c9b0a.css.map",
+    "main.6fc483d2.js.map": "/hmw-hmw-8/static/js/main.6fc483d2.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.073c9b0a.css",
+    "static/js/main.6fc483d2.js"
+  ]
+}
